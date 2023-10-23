@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Practica02PAMathiasModelStoreContainer" CdmEntityContainer="Practica02PAMathiasEntities">
+    <EntitySetMapping Name="Vehiculos">
+      <EntityTypeMapping TypeName="Practica02PAMathiasModel.Vehiculos">
+        <MappingFragment StoreEntitySet="Vehiculos">
+          <ScalarProperty Name="VehiculoID" ColumnName="VehiculoID" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="VendedorID" ColumnName="VendedorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendedores">
+      <EntityTypeMapping TypeName="Practica02PAMathiasModel.Vendedores">
+        <MappingFragment StoreEntitySet="Vendedores">
+          <ScalarProperty Name="VendedorID" ColumnName="VendedorID" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VendedorPA" FunctionName="Practica02PAMathiasModel.Store.VendedorPA" />
+    <FunctionImportMapping FunctionImportName="InsertarVehiculo" FunctionName="Practica02PAMathiasModel.Store.InsertarVehiculo" />
+    <FunctionImportMapping FunctionImportName="ConsultarVendedoresYVehiculos" FunctionName="Practica02PAMathiasModel.Store.ConsultarVendedoresYVehiculos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Practica02PAMathiasModel.ConsultarVendedoresYVehiculos_Result">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="NombreVendedor" ColumnName="NombreVendedor" />
+          <ScalarProperty Name="CarroVendido" ColumnName="CarroVendido" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultarBD" FunctionName="Practica02PAMathiasModel.Store.ConsultarBD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Practica02PAMathiasModel.ConsultarBD_Result">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="NombreVendedor" ColumnName="NombreVendedor" />
+          <ScalarProperty Name="CarroVendido" ColumnName="CarroVendido" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Consultas">
+      <EntityTypeMapping TypeName="Practica02PAMathiasModel.Consultas">
+        <MappingFragment StoreEntitySet="Consultas">
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

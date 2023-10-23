@@ -1,0 +1,80 @@
+﻿@model WebPractica02.Entity.vendedorEntities
+
+@{
+    ViewBag.Title = "RegistroVendedores";
+}
+
+<main>
+    <section class="" style="background-color: #fff;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-9">
+                    <h1 class="text-black mb-4 text-center mt-4">Registrar Vendedor</h1>
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body">
+                            @using (Html.BeginForm("RegistroVendedores", "Registros", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken() <!-- Agrega el token anti-falsificación de solicitudes POST -->
+                                <div class="row align-items-center pt-4 pb-3">
+                                    <div class="col-md-3 ps-5">
+                                        <h6 class="mb-0">Cedula</h6>
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+                                        @Html.TextBoxFor(model => model.Cedula, new { @class = "form-control form-control-lg", placeholder = "Cedula" })
+                                      
+                                    </div>
+                                </div>
+                                <hr class="mx-n3">
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+                                        <h6 class="mb-0">Nombre</h6>
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+                                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control form-control-lg", placeholder = "Nombre" })
+                                  
+                                    </div>
+                                </div>
+                                <hr class="mx-n3">
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+                                        @Html.TextBoxFor(model => model.Correo, new { @class = "form-control form-control-lg", placeholder = "example@example.com" })
+                               
+                                    </div>
+                                </div>
+                                <hr class="mx-n3">
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+                                        <h6 class="mb-0">Estado</h6>
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+                                        @Html.DropDownListFor(model => model.Estado, new List<SelectListItem>
+                                        {
+                                            new SelectListItem { Text = "Activo", Value = "True" },
+                                            new SelectListItem { Text = "Inactivo", Value = "False" }
+                                        }, new { @class = "form-select form-select-lg" })
+                                    </div>
+                                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                                    {
+                                        <p class="alert alert-danger">@ViewBag.ErrorMessage</p>
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(ViewBag.ConfirmationMessage))
+                                    {
+                                        <p class="alert alert-success">@ViewBag.ConfirmationMessage</p>
+                                    }
+                                </div>
+                                <hr class="mx-n3">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

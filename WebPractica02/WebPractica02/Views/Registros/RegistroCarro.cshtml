@@ -1,0 +1,61 @@
+﻿@model WebPractica02.Entity.vehiculoEntities
+
+@{
+    ViewBag.Title = "RegistroCarro";
+}
+
+<section class="h-100 h-custom" style="background-color: #fff;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <img src="https://static.motor.es/fotos-noticias/2020/03/porsche-exclusive-manufaktur-911-turbo-s-indian-red-202065845-1584616347_1.jpg"
+                         class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                         alt="Sample photo">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex justify-content-center">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registrar Vehiculo</h3>
+                        </div>
+                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                        {
+                            <p class="alert alert-danger">@ViewBag.ErrorMessage</p>
+                        }
+
+                        @if (!string.IsNullOrEmpty(ViewBag.ConfirmationMessage))
+                        {
+                            <p class="alert alert-success">@ViewBag.ConfirmationMessage</p>
+                        }
+                        @using (Html.BeginForm("RegistroCarro", "Registros", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                @Html.TextBoxFor(model => model.Marca, new { @class = "form-control mw-100" })
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo">Modelo</label>
+                                @Html.TextBoxFor(model => model.Modelo, new { @class = "form-control mw-100" })
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color</label>
+                                @Html.TextBoxFor(model => model.Color, new { @class = "form-control mw-100" })
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                @Html.TextBoxFor(model => model.Precio, new { @class = "form-control mw-100" })
+                            </div>
+                            <div class="form-group">
+                                <label for="vendedor">VendedorID</label>
+                                @Html.TextBoxFor(model => model.Vendedor, new { @type = "number", @class = "form-control mw-100" })
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <button type="submit" class="btn btn-danger btn-lg">Registrar</button>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
